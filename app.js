@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var trucks = require('./routes/trucks');
 
 mongoose.connect('mongodb://localhost/foodtruckdb');
 
@@ -24,9 +25,14 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var api = require('./controllers/api.js');
+app.get('/truck/:id', api.show);
+app.get('/truck', api.list);
+app.get('/truck/find/:loc', api.locate);
+
 app.use('/', routes);
 app.use('/users', users);
-//app.use('/trucks', trucks);
+app.use('/trucks', trucks);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

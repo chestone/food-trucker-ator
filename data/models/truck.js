@@ -12,7 +12,7 @@ var truckSchema = new Schema({
     Longitude: Number
 });
 
-var truck = mongoose.model('truck', truckSchema);
+var truck = mongoose.model('Truck', truckSchema);
 
 module.exports = {
     Truck: truck
