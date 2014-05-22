@@ -5,8 +5,10 @@ Find single food trucks in your area!
 
 Dependencies:
 node.js + npm
+
 mongodb
 
 To Setup Run:
-npm install
+npm install 
+
 ./db_setup.sh

@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var trucks = require('./routes/trucks');
 
-mongoose.connect('mongodb://localhost/foodtrucks');
+mongoose.connect('mongodb://cheston:Sith02@novus.modulusmongo.net:27017/oxoqUx3o');
 
 var app = express();
 
@@ -63,5 +63,11 @@ app.use(function(err, req, res, next) {
     });
 });
 
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+});
 
 module.exports = app;
