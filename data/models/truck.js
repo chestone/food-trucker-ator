@@ -7,10 +7,8 @@ var truckSchema = new Schema({
     FacilityType: String,
     LocationDescription: String,
     Address: String,
-    FoodItems: String,
-    Latitude: Number,
-    Longitude: Number
-});
+    FoodItems: String
+}, { collection: 'trucks' });
 
 var truck = mongoose.model('Truck', truckSchema);
 

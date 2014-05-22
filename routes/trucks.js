@@ -5,7 +5,9 @@ var mongoose = require('mongoose');
 var truck = require('../data/models/truck').Truck;
 
 router.get('/', function(req, res) {
-    res.render('index', { title: 'Trucks' });
+    Truck.find({}, function(err, docs) {
+        res.render('listTrucks', { trucks: docs});
+    });
 });
 
 module.exports = router;

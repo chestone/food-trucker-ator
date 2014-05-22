@@ -1,8 +1,93 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 25px;
+    font: 200 14px Helvetica, Arial, sans-serif;
+    width: 100%;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+h1 {
+    font-weight: 100;
+    font-size: 24px;
+}
+
+form {
+    display: inline-block;
+}
+
+.fail {
+    background: red;
+}
+
+.pageContent{
+    height: 450px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.address-box {
+    width: 250px;
+}
+
+.locate-container {
+    margin-bottom: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.truckContent > div {
+    display: inline-block;
+}
+
+.selected {
+    background-color: #FFFBCC;
+}
+
+.locate-me {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+#mapcanvas {
+    width: 65%;
+    height: 400px;
+    width: 560px;
+}
+
+#trucklist {
+    width: 240px;
+    vertical-align: top;
+    height: 400px;
+    padding: 0 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.trucks {
+    position: relative;
+    height: 360px;
+    overflow-x: scroll;
+    list-style: none;
+}
+
+.trucks li {
+    border-bottom: 1px dotted black;
+    margin-bottom: 10px;
+}
+
+.trucks h3 {
+    margin-right: 5px;
+}
+
+.trucks h3,
+.trucks p {
+    display: inline-block;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }

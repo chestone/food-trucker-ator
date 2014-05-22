@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    div(class="status")
+    h1 Welcome to Food Truck Finder-ator
+    p Go and find yourself some food!
+    article(class="pageContent")
+        div(class="locate-container")
+            form(name="addressbar")
+                input(class="address-box", name="address", type="text")
+                input(type="submit",class="convert-address", value="Find By Address")
+            button(class="locate-me").
+                Locate Me
+        article(class="truckContent")
+            div(id="mapcanvas")
+            div(id="trucklist")
+                h3 List of Nearby Trucks
+                ul(class="trucks")

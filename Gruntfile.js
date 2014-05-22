@@ -39,6 +39,16 @@ module.exports = function(grunt) {
                     console: true
                 }
             }
+        },
+        serverFile: 'app.js',
+        shell: {
+            nodemon: {
+                command: 'nodemon <%= serverFile %>',
+                options: {
+                    stdout: true,
+                    stderr: true
+                }
+            }
         }
     });
 
@@ -49,6 +59,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
+    grunt.loadNpmTasks('grunt-shell');
+
     grunt.registerTask('lint', ['jshint']);
     grunt.registerTask('default', ['sass', 'concat', 'uglify']);
+    grunt.registerTask('start', 'shell:nodemon');
 };

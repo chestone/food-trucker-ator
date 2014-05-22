@@ -8,22 +8,25 @@
  */
 
 var Truck = require('../data/models/truck').Truck;
-console.log(Truck.find);
+
+var fields = 'Applicant loc FacilityType FoodItems LocationDescription locationid';
 
 exports.list = function(req, res) {
-    Truck.find({}, function(err, trucks) {
+    Truck.find({}, fields, function(err, trucks) {
         res.send(trucks);
     });
 };
 
 exports.show = function(req, res) {
-    Truck.findOne({ locationid : req.params.id }, function(err, truck) {
+    Truck.findOne({ locationid : req.params.id.toString() }, fields, function(err, truck) {
         res.send({ truck : truck});
     });
 };
 
 exports.locate = function(req, res) {
-    Truck.find({}, function(err, trucks) {
+    var lat = parseFloat(req.query.lat);
+    var lng = parseFloat(req.query.lng);
+    Truck.find({ loc : { $near : [ lng, lat ]} }, fields, { limit: 20 }, function(err, trucks) {
         res.send(trucks);
     });
 };

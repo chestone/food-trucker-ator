@@ -6,11 +6,19 @@ var input = fs.readFile('./data/raw/foodtrucks.csv', { encoding: 'utf8' }, funct
         if (err) throw err;
         data.map(function(obj) {
             if (obj.hasOwnProperty('Latitude') && obj.hasOwnProperty('Longitude')) {
-                obj.loc = {
-                    lon : obj.Longitude,
-                    lat : obj.Latitude
-                };
+                if (obj.Longitude == "" || obj.Latitude == "" || obj.Location == "") { 
+                    obj.loc = "empty";
+                } else {
+                    obj.loc = [
+                        parseFloat(parseFloat(obj.Longitude).toFixed(10)),
+                        parseFloat(parseFloat(obj.Latitude).toFixed(10))
+                    ];
+                }
+                delete obj.Latitude;
+                delete obj.Longitude;
+                delete obj.Location;
             }
+            obj.locationid = parseInt(obj.locationid);
             return obj;
         });
 
